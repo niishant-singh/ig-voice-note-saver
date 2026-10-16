@@ -1,0 +1,173 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    width: 300px;
+    margin: 0;
+    padding: 20px;
+    font: 13px/1.5 system-ui, sans-serif;
+    color: #e8e8e8;
+    background: #151515;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .mark {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #414141;
+    border-radius: 9px;
+    color: #c4a7f7;
+    font-size: 17px;
+  }
+
+  h1 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 11px;
+    color: #777;
+    margin: 1px 0 0;
+  }
+
+  .label {
+    color: #777;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
+  }
+
+  .chat {
+    padding: 13px 0;
+    margin-bottom: 12px;
+    border-top: 1px solid #303030;
+    border-bottom: 1px solid #303030;
+  }
+
+  #count {
+    color: #c7c7c7;
+    font-size: 12px;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 8px;
+    border: 1px solid #c4a7f7;
+    border-radius: 7px;
+    background: #c4a7f7;
+    color: #17131e;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 150ms ease, border-color 150ms ease;
+  }
+
+  button:hover:not(:disabled) {
+    background: #d2bdf9;
+    border-color: #d2bdf9;
+  }
+
+  button.secondary {
+    background: transparent;
+    color: #bdbdbd;
+    border-color: #353535;
+    font-weight: 450;
+  }
+
+  button.secondary:hover:not(:disabled) {
+    background: #222;
+    border-color: #505050;
+  }
+
+  button:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  #status {
+    min-height: 16px;
+    margin: 12px 0 0;
+    color: #929292;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #292929;
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+  }
+
+  .version-mark {
+    width: 18px;
+    height: 4px;
+    border-radius: 2px;
+    background: #8f73bd;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    button {
+      transition: none;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="mark">∿</div>
+    <div>
+      <h1>IG Voice Note Saver</h1>
+      <p class="subtitle">Instagram conversation utility</p>
+    </div>
+  </div>
+
+  <div class="chat">
+    <div class="label">Current conversation</div>
+    <p id="count">Checking this chat…</p>
+  </div>
+
+  <button id="start">Save all voice notes in this chat</button>
+  <button id="stop" class="secondary" disabled>Stop</button>
+  <button id="debug" class="secondary">Copy debug info</button>
+
+  <p id="status"></p>
+
+  <div class="footer">
+    <span>INSTAVOICE VAULT</span>
+    <span class="version-mark"></span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

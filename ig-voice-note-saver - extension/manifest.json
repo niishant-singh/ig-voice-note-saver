@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "IG Voice Note Saver",
+  "version": "0.2.0",
+  "description": "Save the voice notes from an Instagram DM chat to your computer.",
+  "permissions": ["downloads", "webRequest"],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://*.cdninstagram.com/*",
+    "https://*.fbcdn.net/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["page-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": { "default_popup": "popup.html", "default_title": "IG Voice Note Saver" }
+}
